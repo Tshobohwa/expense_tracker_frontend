@@ -1,5 +1,6 @@
 import React from "react";
 import PageWrapper from "../components/PageWrapper";
+import { Link } from "react-router-dom";
 
 const SplashScreen = () => {
   return (
@@ -15,19 +16,20 @@ const SplashScreen = () => {
             An easy and simple way to keep track of your expenses.
           </p>
           <div className=" w-full flex flex-col gap-3 items-center">
-            <a
+            <Link
+              to={"/login"}
               className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 flex items-center justify-center"
-              href="login"
             >
               Login
-            </a>
+            </Link>
+
             <p className=" text-red-400">don't have an account?</p>
-            <a
+            <Link
+              to={"/signup"}
               className=" text-green-400 font-bold text-lg w-full h-[50px] rounded-md border border-green-400 flex items-center justify-center"
-              href="/signup"
             >
               Sign up
-            </a>
+            </Link>
           </div>
         </div>
       </div>

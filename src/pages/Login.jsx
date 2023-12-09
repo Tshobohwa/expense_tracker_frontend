@@ -1,5 +1,6 @@
 import React from "react";
 import PageWrapper from "../components/PageWrapper";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -29,9 +30,12 @@ const Login = () => {
             </button>
             <p className=" text-white">
               don't have an account?{" "}
-              <a href="/signup" className=" text-green-400 font-bold underline">
+              <Link
+                to={"/signup"}
+                className=" text-green-400 font-bold underline"
+              >
                 sign up
-              </a>
+              </Link>
             </p>
           </div>
         </div>
