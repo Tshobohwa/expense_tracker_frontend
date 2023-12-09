@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const SignUp = () => {
   return (
     <PageWrapper>
-      <div className="w-[100vw] h-[100vh] bg-wallet bg-cover bg-center">
+      <div className="w-[100vw] h-[100dvh] bg-wallet bg-cover bg-center">
         <div className="flex justify-between flex-col items-center gap-3 bg-black/60 h-full w-full p-5">
           <div className="w-full">
             <h1 className="font-bold text-3xl text-yellow-200 mt-9">
