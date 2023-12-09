@@ -1,7 +1,7 @@
 import React from "react";
 import PageWrapper from "../components/PageWrapper";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <PageWrapper>
       <div className="w-[100vw] h-[100vh] bg-wallet bg-cover bg-center">
@@ -18,19 +18,34 @@ const Login = () => {
               className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
             />
             <input
+              type="text"
+              placeholder="first name"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+            />
+            <input
+              type="text"
+              placeholder="last name"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+            />
+            <input
               type="password"
               placeholder="password"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+            />
+            <input
+              type="password"
+              placeholder="confirm password"
               className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
             />
           </div>
           <div className=" w-full flex flex-col gap-3 items-center">
             <button className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 ">
-              Login
+              sign up
             </button>
             <p className=" text-white">
-              don't have an account?{" "}
-              <a href="" className=" text-green-400 font-bold underline">
-                sign up
+              already have an account?{" "}
+              <a href="/login" className=" text-green-400 font-bold underline">
+                login
               </a>
             </p>
           </div>
@@ -40,4 +55,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
