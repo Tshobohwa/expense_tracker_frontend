@@ -16,14 +16,14 @@ const SplashScreen = () => {
           </p>
           <div className=" w-full flex flex-col gap-3 items-center">
             <a
-              className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 "
+              className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 flex items-center justify-center"
               href="login"
             >
               Login
             </a>
             <p className=" text-red-400">don't have an account?</p>
             <a
-              className=" text-green-400 font-bold text-lg w-full h-[50px] rounded-md border border-green-400 "
+              className=" text-green-400 font-bold text-lg w-full h-[50px] rounded-md border border-green-400 flex items-center justify-center"
               href="/signup"
             >
               Sign up
