@@ -15,27 +15,27 @@ const SignUp = () => {
             <input
               type="email"
               placeholder="email adress"
-              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6 text-white"
             />
             <input
               type="text"
               placeholder="first name"
-              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6 text-white"
             />
             <input
               type="text"
               placeholder="last name"
-              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6 text-white"
             />
             <input
               type="password"
               placeholder="password"
-              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6 text-white"
             />
             <input
               type="password"
               placeholder="confirm password"
-              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6"
+              className=" w-full border border-green-100 h-[60px] text-lg bg-transparent rounded-md pl-6 text-white"
             />
           </div>
           <div className=" w-full flex flex-col gap-3 items-center">

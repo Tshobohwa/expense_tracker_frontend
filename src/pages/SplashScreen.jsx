@@ -15,13 +15,19 @@ const SplashScreen = () => {
             An easy and simple way to keep track of your expenses.
           </p>
           <div className=" w-full flex flex-col gap-3 items-center">
-            <button className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 ">
+            <a
+              className=" text-white font-bold text-lg w-full h-[50px] rounded-md bg-green-400 "
+              href="login"
+            >
               Login
-            </button>
+            </a>
             <p className=" text-red-400">don't have an account?</p>
-            <button className=" text-green-400 font-bold text-lg w-full h-[50px] rounded-md border border-green-400 ">
+            <a
+              className=" text-green-400 font-bold text-lg w-full h-[50px] rounded-md border border-green-400 "
+              href="/signup"
+            >
               Sign up
-            </button>
+            </a>
           </div>
         </div>
       </div>
