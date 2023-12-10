@@ -18,6 +18,15 @@ const TransactionsContainer = () => {
       <ExpenseTransaction />
       <ExpenseTransaction />
       <ExpenseTransaction />
+      <IncomeTransaction />
+      <ExpenseTransaction />
+      <ExpenseTransaction />
+      <ExpenseTransaction />
+      <IncomeTransaction />
+      <ExpenseTransaction />
+      <ExpenseTransaction />
+      <ExpenseTransaction />
+      <IncomeTransaction />
       <ExpenseTransaction />
       <ExpenseTransaction />
     </div>
