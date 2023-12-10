@@ -3,7 +3,7 @@ import incomeIcon from "../../public/compensation.png";
 
 const IncomeTransaction = () => {
   return (
-    <div className=" w-full rounded-xl px-4 py-7 bg-blue-500 text-white flex items-center gap-3 relative">
+    <div className=" w-full rounded-xl px-4 py-7 my-4 bg-blue-500 text-white flex items-center gap-3 relative">
       <p className=" absolute top-3 right-3 text-sm">jeudi 14/01/2023 15:30</p>
       <div className=" w-[80px] h-[80px] object-contain">
         <img src={incomeIcon} className=" w-full h-full" />
