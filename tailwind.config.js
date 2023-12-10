@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        wallet: "url('./src/assets/wallet-backgound.jpg')",
+        wallet: "url('./public/wallet-backgound.jpg')",
       },
     },
   },
