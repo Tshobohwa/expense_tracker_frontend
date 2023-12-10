@@ -46,7 +46,7 @@ const ExpenseChartContainer = () => {
     },
   ];
   return (
-    <div className=" w-full bg-white rounded-md relative p-2 flex flex-col gap-3 shadow shadow-green-900">
+    <div className=" w-full bg-white rounded-[24px] relative p-2 flex flex-col gap-3 shadow shadow-green-900">
       <p className=" text-2xl font-bold text-blue-950">Expenses</p>
       <button className=" h-[30px] rounded-[15px] px-5 bg-red-700 text-white absolute top-2 right-2">
         add new
