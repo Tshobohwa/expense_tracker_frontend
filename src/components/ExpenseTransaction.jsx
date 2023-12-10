@@ -3,7 +3,7 @@ import { foodImg } from "../assets/icons";
 
 const ExpenseTransaction = ({ expense }) => {
   return (
-    <div className=" w-full px-3 py-4 rounded-xl relative shadow shadow-green-400">
+    <div className=" w-full px-3 py-4 rounded-xl relative shadow-sm shadow-green-400">
       <p className=" absolute top-2 right-2 text-blue-800 text-sm">
         jeudi 13/05/2002 14:45
       </p>
