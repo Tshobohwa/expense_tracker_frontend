@@ -3,6 +3,7 @@ import PageWrapper from "../components/PageWrapper";
 import UserContainer from "../components/UserContainer";
 import BalanceContainer from "../components/BalanceContainer";
 import ExpenseChartContainer from "../components/ExpenseChartContainer";
+import TransactionsContainer from "../components/TransactionsContainer";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
         <UserContainer />
         <BalanceContainer />
         <ExpenseChartContainer />
+        <TransactionsContainer />
       </div>
     </PageWrapper>
   );

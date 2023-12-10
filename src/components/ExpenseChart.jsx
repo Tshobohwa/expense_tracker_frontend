@@ -13,7 +13,7 @@ const ExpenseChart = ({ category }) => {
           }}
         ></div>
       </div>
-      <img src={category.icon} alt="" className={` w-full object-contain `} />
+      <img src={category.icon} alt="" className={` w-[75%] object-contain `} />
     </div>
   );
 };

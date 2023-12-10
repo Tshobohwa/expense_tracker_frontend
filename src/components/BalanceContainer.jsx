@@ -2,7 +2,7 @@ import React from "react";
 
 const BalanceContainer = () => {
   return (
-    <div className=" w-full p-2 rounded-md bg-slate-950 relative flex flex-col gap-3">
+    <div className=" w-full px-2 py-9 rounded-md  bg-gradient-to-r from-slate-950 to-black relative flex flex-col gap-3 items-center justify-center">
       <button className=" w-[50px] h-[50px] rounded-md absolute top-2 right-2 bg-green-500 text-2xl font-bold text-white">
         +
       </button>
