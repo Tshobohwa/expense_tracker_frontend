@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <PageWrapper>
       <div className=" p-2 bg-green-200 flex flex-col gap-3">
-        {/* <AddExpenseForm /> */}
+        <AddExpenseForm />
         <UserContainer />
         <BalanceContainer />
         <ExpenseChartContainer />

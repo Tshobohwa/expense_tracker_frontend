@@ -1,5 +1,6 @@
 import React from "react";
 import FormsContainer from "./FormsContainer";
+import CategorySelector from "./CategorySelector";
 
 const AddExpenseForm = () => {
   return (
@@ -20,6 +21,7 @@ const AddExpenseForm = () => {
             cols="30"
             rows="10"
           ></textarea>
+          <CategorySelector />
         </div>
       </div>
     </FormsContainer>
