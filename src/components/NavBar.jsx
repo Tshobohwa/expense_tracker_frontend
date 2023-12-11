@@ -6,7 +6,7 @@ import expenses from "../../public/expenses.png";
 
 const NavBar = () => {
   return (
-    <div className=" w-[100vw] h-[60px] sticky bottom-0 flex bg-white shadow shadow-[#d3d3d3] mx-[-8px]">
+    <div className=" w-[100vw] h-[60px] sticky bottom-0 flex bg-white shadow shadow-[#d3d3d3] mx-[-8px] z-50">
       <Link className=" w-[33%] flex items-center justify-center">
         <img src={incomes} className=" w-[30px]" />
       </Link>
