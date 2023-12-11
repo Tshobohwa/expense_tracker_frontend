@@ -5,7 +5,6 @@ import BalanceContainer from "../components/BalanceContainer";
 import ExpenseChartContainer from "../components/ExpenseChartContainer";
 import TransactionsContainer from "../components/TransactionsContainer";
 import NavBar from "../components/NavBar";
-import AddExpenseForm from "../components/AddExpenseForm";
 import AddIncomeFrom from "../components/AddIncomeFrom";
 
 const Home = () => {
