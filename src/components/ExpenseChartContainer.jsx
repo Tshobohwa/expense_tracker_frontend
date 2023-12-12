@@ -7,7 +7,13 @@ import {
   transportationImg,
 } from "../assets/icons";
 import ExpenseChart from "./ExpenseChart";
+import { useDispatch } from "react-redux";
+import { openAddExpenseForm } from "../redux/slices/appStateSlice";
 const ExpenseChartContainer = () => {
+  const dispatch = useDispatch();
+  const addExpenseClickHandler = () => {
+    dispatch(openAddExpenseForm());
+  };
   const categories = [
     {
       id: 1,
@@ -48,7 +54,10 @@ const ExpenseChartContainer = () => {
   return (
     <div className=" w-full bg-white rounded-[24px] relative p-2 flex flex-col gap-3 shadow shadow-green-900">
       <p className=" text-2xl font-bold text-blue-950">Expenses</p>
-      <button className=" h-[30px] rounded-[15px] px-5 bg-red-700 text-white absolute top-2 right-2">
+      <button
+        className=" h-[30px] rounded-[15px] px-5 bg-red-700 text-white absolute top-2 right-2"
+        onClick={addExpenseClickHandler}
+      >
         add new
       </button>
       <div className=" w-full flex">

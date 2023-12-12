@@ -4,6 +4,8 @@ import transportationIcon from "../../public/man.png";
 import clothesIcon from "../../public/clothing.png";
 import otherSpending from "../../public/spending.png";
 import exit from "../../public/exit.png";
+import income from "../../public/income.png";
+import compensation from "../../public/compensation.png";
 
 const icons = {
   foodImg: foodIcon,
@@ -12,6 +14,8 @@ const icons = {
   clothesImg: clothesIcon,
   othersImg: otherSpending,
   exitImg: exit,
+  incomeImg: income,
+  compensationImg: compensation,
 };
 
 export const {
@@ -21,4 +25,6 @@ export const {
   clothesImg,
   othersImg,
   exitImg,
+  incomeImg,
+  compensationImg,
 } = icons;
