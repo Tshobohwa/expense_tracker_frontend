@@ -1,5 +1,6 @@
 import React from "react";
 import Transaction from "./Transaction";
+import ExpensePageComponent from "./ExpensePageComponent";
 
 const ExpensesContainer = () => {
   return (
@@ -7,14 +8,16 @@ const ExpensesContainer = () => {
       <div className="  flex items-center w-full h-[60px] justify-center">
         <p className=" font-bold text-red-900">Expenses</p>
       </div>
-      <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
-      <Transaction />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
+      <ExpensePageComponent />
     </div>
   );
 };
