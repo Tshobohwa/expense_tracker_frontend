@@ -2,12 +2,15 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { BASE_URL } from "../api";
 
-const initialState = {
+const unauthenticatedUser = {
   loading: false,
   error: "",
   authenticated: false,
   currentUser: {},
 };
+
+const initialState =
+  JSON.parse(localStorage.getItem("user")) || unauthenticatedUser;
 
 export const signUp = createAsyncThunk("user/signUp", async (user) => {
   const response = await axios.post(`${BASE_URL}users`, { user });
@@ -26,12 +29,14 @@ const userSlice = createSlice({
       if (payload.status.code === 422)
         return { ...state, loading: false, error: payload.error };
       else if (payload.status.code === 200) {
-        return {
+        const authenticatedUser = {
           ...state,
           loading: false,
           authenticated: true,
           currentUser: payload.user,
         };
+        localStorage.setItem("user", JSON.stringify(authenticatedUser));
+        return authenticatedUser;
       }
     });
   },

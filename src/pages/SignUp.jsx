@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import PageWrapper from "../components/PageWrapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import wallet from "../../public/wallet-backgound.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../redux/slices/userSlice";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const userSlice = useSelector((store) => store.user);
 
@@ -18,31 +19,26 @@ const SignUp = () => {
   const emailChangeHandler = (e) => {
     const text = e.target.value;
     setEmail(text);
-    console.log(email);
   };
 
   const firstNameChangeHandler = (e) => {
     const text = e.target.value;
     setFirstName(text);
-    console.log(firstName);
   };
 
   const lastNameChangeHandler = (e) => {
     const text = e.target.value;
     setLastName(text);
-    console.log(lastName);
   };
 
   const passwordChangeHandler = (e) => {
     const text = e.target.value;
     setPassword(text);
-    console.log(password);
   };
 
   const confirmPasswordChangeHandler = (e) => {
     const text = e.target.value;
     setConfirmPassword(text);
-    console.log(confirmPassword);
   };
 
   const [emailError, setEmailError] = useState("");
