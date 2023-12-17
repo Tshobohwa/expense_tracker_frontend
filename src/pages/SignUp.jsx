@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/PageWrapper";
 import { Link, useNavigate } from "react-router-dom";
 import wallet from "../../public/wallet-backgound.jpg";
@@ -100,6 +100,11 @@ const SignUp = () => {
 
     dispatch(signUp(user));
   };
+
+  useEffect(() => {
+    if (!userSlice.authenticated) return;
+    navigate("/", { replace: true });
+  }, [userSlice.authenticated]);
 
   return (
     <PageWrapper>
