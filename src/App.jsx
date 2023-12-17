@@ -13,6 +13,7 @@ import AddExpenseForm from "./components/AddExpenseForm";
 import AddIncomeFrom from "./components/AddIncomeFrom";
 import store from "./redux/store";
 import PrivateRoutes from "./pages/PrivateRoutes";
+import AuthenticationRoutes from "./pages/AuthenticationRoutes";
 
 function App() {
   const { authenticated } = useSelector((store) => store.user);
@@ -29,8 +30,10 @@ function App() {
             path="/"
             element={!authenticated ? <SplashScreen /> : <Home />}
           />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route element={<AuthenticationRoutes />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+          </Route>
           <Route element={<PrivateRoutes />}>
             <Route path="/incomes" elemenst={<Incomes />} />
             <Route path="/incomes/:id" element={<IncomeDetails />} />
