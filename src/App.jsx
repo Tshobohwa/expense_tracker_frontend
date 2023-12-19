@@ -8,18 +8,27 @@ import Incomes from "./pages/Incomes";
 import IncomeDetails from "./pages/IncomeDetails";
 import Expenses from "./pages/Expenses";
 import ExpenseDetails from "./pages/ExpenseDetails";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import AddExpenseForm from "./components/AddExpenseForm";
 import AddIncomeFrom from "./components/AddIncomeFrom";
 import store from "./redux/store";
 import PrivateRoutes from "./pages/PrivateRoutes";
 import AuthenticationRoutes from "./pages/AuthenticationRoutes";
+import { useEffect } from "react";
+import { fetchTransactions } from "./redux/slices/transactionsSlice";
+import { fetchCategories } from "./redux/slices/categoriesSlice";
 
 function App() {
-  const { authenticated } = useSelector((store) => store.user);
+  const dispatch = useDispatch();
+  const { authenticated, token } = useSelector((store) => store.user);
   const { addingExpense, addingIncome } = useSelector(
     (store) => store.appState
   );
+  useEffect(() => {
+    if (!token) return;
+    dispatch(fetchTransactions(token));
+    dispatch(fetchCategories(token));
+  }, [token]);
   return (
     <>
       {(addingExpense && <AddExpenseForm />) ||

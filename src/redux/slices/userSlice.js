@@ -20,6 +20,7 @@ export const signUp = createAsyncThunk("user/signUp", async (user) => {
 export const login = createAsyncThunk("user/login", async (user) => {
   try {
     const response = await axios.post(`${BASE_URL}users/sign_in`, { user });
+    console.log(response.headers);
     return response.data;
   } catch (error) {
     return error.response.data;

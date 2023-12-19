@@ -18,6 +18,14 @@ const icons = {
   compensationImg: compensation,
 };
 
+export const cathegoryIcons = [
+  { id: 2, name: "food", image: foodIcon },
+  { id: 3, name: "rent", image: rentIcon },
+  { id: 4, name: "transportation", image: transportationIcon },
+  { id: 5, name: "clothe", image: clothesIcon },
+  { id: 6, name: "other", image: otherSpending },
+];
+
 export const {
   foodImg,
   rentImg,

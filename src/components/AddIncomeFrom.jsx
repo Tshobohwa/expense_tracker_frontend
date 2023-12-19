@@ -1,7 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import FormsContainer from "./FormsContainer";
+import { useDispatch, useSelector } from "react-redux";
+import { postTransaction } from "../redux/slices/transactionsSlice";
 
 const AddIncomeFrom = () => {
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((store) => store.user);
+  const [amount, setAmount] = useState(0);
+  const [comment, setComment] = useState("");
+  const [amountError, setAmountError] = useState("");
+  const [commentError, setCommentError] = useState("");
+  const [error, setError] = useState(false);
+
+  const amountChangeHandler = (e) => {
+    setAmount(e.target.value);
+  };
+
+  const commentChangeHandler = (e) => {
+    setComment(e.target.value);
+  };
+
+  const submithandler = () => {
+    setError(false);
+    if (comment === "") {
+      setCommentError("comment can't be empty");
+      setError(true);
+    }
+    if (amount === 0) {
+      setAmountError("Please add an amount");
+      setError(true);
+    }
+    if (error) return;
+    dispatch(
+      postTransaction({
+        transaction: {
+          user_id: currentUser.id,
+          amount,
+          category_id: 1,
+          comment,
+        },
+      })
+    );
+  };
   return (
     <FormsContainer>
       <div className=" w-full rounded-3xl bg-white p-3 flex flex-col gap-6 shadow-lg items-center">
@@ -13,6 +53,8 @@ const AddIncomeFrom = () => {
               type="number"
               min={0}
               className=" w-full bg-green-200 h-[50px] mx-3 rounded-xl focus:outline-none focus:border-b-2 text-center text-lg"
+              value={amount}
+              onChange={amountChangeHandler}
             />
           </div>
           <p>Comment:</p>
@@ -20,12 +62,17 @@ const AddIncomeFrom = () => {
             className=" w-full rounded-xl bg-green-200 h-[80px] p-2 focus:outline-none"
             cols="30"
             rows="10"
+            value={comment}
+            onChange={commentChangeHandler}
           ></textarea>
           <div className=" w-full flex justify-between">
             <button className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-green-700 border border-green-700">
               discard
             </button>
-            <button className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-white bg-green-700">
+            <button
+              className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-white bg-green-700"
+              onClick={submithandler}
+            >
               add
             </button>
           </div>
