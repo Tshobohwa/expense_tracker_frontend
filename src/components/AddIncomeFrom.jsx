@@ -20,7 +20,8 @@ const AddIncomeFrom = () => {
     setComment(e.target.value);
   };
 
-  const submithandler = () => {
+  const submithandler = (e) => {
+    e.preventDefault();
     setError(false);
     if (comment === "") {
       setCommentError("comment can't be empty");
@@ -30,17 +31,18 @@ const AddIncomeFrom = () => {
       setAmountError("Please add an amount");
       setError(true);
     }
-    if (error) return;
-    dispatch(
-      postTransaction({
-        transaction: {
-          user_id: currentUser.id,
-          amount,
-          category_id: 1,
-          comment,
-        },
-      })
-    );
+    if (!error) {
+      dispatch(
+        postTransaction({
+          transaction: {
+            user_id: currentUser.id,
+            amount,
+            category_id: 1,
+            comment,
+          },
+        })
+      );
+    }
   };
   return (
     <FormsContainer>
@@ -57,6 +59,7 @@ const AddIncomeFrom = () => {
               onChange={amountChangeHandler}
             />
           </div>
+          <p className=" text-red-500">{amountError}</p>
           <p>Comment:</p>
           <textarea
             className=" w-full rounded-xl bg-green-200 h-[80px] p-2 focus:outline-none"
@@ -65,6 +68,7 @@ const AddIncomeFrom = () => {
             value={comment}
             onChange={commentChangeHandler}
           ></textarea>
+          <p className=" text-red-500">{commentError}</p>
           <div className=" w-full flex justify-between">
             <button className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-green-700 border border-green-700">
               discard
