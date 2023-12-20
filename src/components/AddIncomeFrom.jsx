@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FormsContainer from "./FormsContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { postTransaction } from "../redux/slices/transactionsSlice";
+import { closeAddTransactionForm } from "../redux/slices/appStateSlice";
 
 const AddIncomeFrom = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const AddIncomeFrom = () => {
   const [error, setError] = useState(false);
 
   const amountChangeHandler = (e) => {
-    setAmount(e.target.value);
+    setAmount(+e.target.value);
   };
 
   const commentChangeHandler = (e) => {
@@ -44,6 +45,10 @@ const AddIncomeFrom = () => {
       );
     }
   };
+
+  const discardHandler = () => {
+    dispatch(closeAddTransactionForm());
+  };
   return (
     <FormsContainer>
       <div className=" w-full rounded-3xl bg-white p-3 flex flex-col gap-6 shadow-lg items-center">
@@ -55,7 +60,6 @@ const AddIncomeFrom = () => {
               type="number"
               min={0}
               className=" w-full bg-green-200 h-[50px] mx-3 rounded-xl focus:outline-none focus:border-b-2 text-center text-lg"
-              value={amount}
               onChange={amountChangeHandler}
             />
           </div>
@@ -65,17 +69,21 @@ const AddIncomeFrom = () => {
             className=" w-full rounded-xl bg-green-200 h-[80px] p-2 focus:outline-none"
             cols="30"
             rows="10"
-            value={comment}
             onChange={commentChangeHandler}
           ></textarea>
           <p className=" text-red-500">{commentError}</p>
           <div className=" w-full flex justify-between">
-            <button className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-green-700 border border-green-700">
+            <button
+              className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-green-700 border border-green-700"
+              onClick={discardHandler}
+              type="button"
+            >
               discard
             </button>
             <button
               className=" w-[48%] h-[60px] rounded-2xl flex items-center justify-center text-white bg-green-700"
               onClick={submithandler}
+              type="submit"
             >
               add
             </button>

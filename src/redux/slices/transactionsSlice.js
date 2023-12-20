@@ -4,22 +4,19 @@ import axios from "axios";
 
 export const fetchTransactions = createAsyncThunk(
   "transactions/fetchTransactions",
-  async (token) => {
-    console.log(token);
+  async ({ token, user_id }) => {
     const headers = {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     };
 
-    const url = `${API_URL}/users/1/transactions`;
+    const url = `${API_URL}/users/${user_id}/transactions`;
 
     try {
       const response = await fetch(url, { headers });
       const data = await response.json();
-      console.log(data);
       return data;
     } catch (error) {
-      console.error("Error fetching transactions:", error);
       throw error;
     }
   }
@@ -38,7 +35,6 @@ export const postTransaction = createAsyncThunk(
       `${API_URL}users/1/transactions`,
       transaction
     );
-    console.log(response);
     return response.data;
   }
 );
@@ -65,6 +61,7 @@ const transactionsSlice = createSlice({
           ? incomes.push(transaction)
           : expenses.push(transaction)
       );
+      return { ...state, expenses, incomes };
     },
     setSentFalse: (state) => {
       return { ...state, sent: false };
@@ -75,8 +72,25 @@ const transactionsSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchTransactions.fulfilled, (state, { payload }) => {
-      console.log(payload);
-      return { ...state, loading: false, transactions: payload.transactions };
+      let { transactions } = payload;
+      transactions = transactions.map((transaction) => {
+        const { amount } = transaction;
+        return { ...transaction, amount: Number.parseInt(amount) };
+      });
+      const expenses = [];
+      const incomes = [];
+      transactions.forEach((transaction) =>
+        transaction.category_id === 1
+          ? incomes.push(transaction)
+          : expenses.push(transaction)
+      );
+      return {
+        ...state,
+        loading: false,
+        transactions,
+        incomes,
+        expenses,
+      };
     });
     builder.addCase(fetchTransactions.rejected, (state) => {
       return { ...state, loading: false, error: "An error occured" };
@@ -86,10 +100,13 @@ const transactionsSlice = createSlice({
     });
     builder.addCase(postTransaction.fulfilled, (state, { payload }) => {
       const { transactions } = state;
+      let { transaction } = payload;
+      const { amount } = transaction;
+      transaction = { ...transaction, amount: Number.parseInt(amount) };
       return {
         ...state,
         loading: false,
-        transactions: [...transactions, payload.transaction],
+        transactions: [transaction, ...transactions],
         sent: true,
       };
     });
@@ -99,6 +116,6 @@ const transactionsSlice = createSlice({
   },
 });
 
-export const { filterTransactions } = transactionsSlice.actions;
+export const { filterTransactions, setSentFalse } = transactionsSlice.actions;
 
 export default transactionsSlice.reducer;

@@ -7,11 +7,10 @@ const formatTime = (timestampString) => {
     day: "numeric",
     hour: "numeric",
     minute: "numeric",
-    second: "numeric",
-    timeZoneName: "short",
   };
 
   const formattedDate = date.toLocaleDateString("en-US", options);
+
   return formattedDate;
 };
 

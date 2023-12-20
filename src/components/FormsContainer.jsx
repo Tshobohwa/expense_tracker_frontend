@@ -2,7 +2,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { exitImg } from "../assets/icons";
 import { closeAddTransactionForm } from "../redux/slices/appStateSlice";
 import { useEffect } from "react";
-import { filterTransactions } from "../redux/slices/transactionsSlice";
+import {
+  filterTransactions,
+  setSentFalse,
+} from "../redux/slices/transactionsSlice";
 
 const FormsContainer = ({ children }) => {
   const { sent } = useSelector((store) => store.transactions);
@@ -12,6 +15,7 @@ const FormsContainer = ({ children }) => {
   };
   useEffect(() => {
     if (!sent) return;
+    dispatch(setSentFalse());
     dispatch(filterTransactions());
     dispatch(closeAddTransactionForm());
   }, [sent]);

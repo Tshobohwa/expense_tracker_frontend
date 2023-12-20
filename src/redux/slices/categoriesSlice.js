@@ -24,6 +24,7 @@ const categoriesSlice = createSlice({
       return { ...state, loading: true };
     });
     builder.addCase(fetchCategories.fulfilled, (state, { payload }) => {
+      console.log(payload.categories);
       return { ...state, categories: payload.categories };
     });
     builder.addCase(fetchCategories.rejected, (state) => {

@@ -15,6 +15,7 @@ const Login = () => {
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [error, setError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -71,6 +72,9 @@ const Login = () => {
           src={wallet}
           alt=""
           className=" w-full h-full object-cover object-center"
+          onLoad={() => {
+            setImageLoaded(true);
+          }}
         />
         <div className="flex justify-between flex-col items-center gap-3 bg-black/60 h-full w-full p-5 absolute top-0 left-0 right-0 bottom-0">
           <div className="w-full">

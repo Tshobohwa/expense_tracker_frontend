@@ -11,7 +11,6 @@ import ExpenseDetails from "./pages/ExpenseDetails";
 import { useDispatch, useSelector } from "react-redux";
 import AddExpenseForm from "./components/AddExpenseForm";
 import AddIncomeFrom from "./components/AddIncomeFrom";
-import store from "./redux/store";
 import PrivateRoutes from "./pages/PrivateRoutes";
 import AuthenticationRoutes from "./pages/AuthenticationRoutes";
 import { useEffect } from "react";
@@ -20,13 +19,15 @@ import { fetchCategories } from "./redux/slices/categoriesSlice";
 
 function App() {
   const dispatch = useDispatch();
-  const { authenticated, token } = useSelector((store) => store.user);
+  const { authenticated, token, currentUser } = useSelector(
+    (store) => store.user
+  );
   const { addingExpense, addingIncome } = useSelector(
     (store) => store.appState
   );
   useEffect(() => {
-    if (!token) return;
-    dispatch(fetchTransactions(token));
+    // if (!token) return;
+    dispatch(fetchTransactions({ token, user_id: currentUser.id }));
     dispatch(fetchCategories(token));
   }, [token]);
   return (
@@ -44,7 +45,7 @@ function App() {
             <Route path="/signup" element={<SignUp />} />
           </Route>
           <Route element={<PrivateRoutes />}>
-            <Route path="/incomes" elemenst={<Incomes />} />
+            <Route path="/incomes" element={<Incomes />} />
             <Route path="/incomes/:id" element={<IncomeDetails />} />
             <Route path="/expenses" element={<Expenses />} />
             <Route path="expenses/:id" element={<ExpenseDetails />} />
